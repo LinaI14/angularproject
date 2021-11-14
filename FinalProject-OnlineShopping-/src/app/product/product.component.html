@@ -1,0 +1,12 @@
+<!-- <tr *ngFor="let z of  productservice.data">
+    <td>{{ z.color }}</td>
+</tr> -->
+
+<app-product-card *ngFor="let x of productservice.data" [productName]='x.productName' [productId]='x.productId'
+    [productDesc]='x.productDesc' [size]='x.size' [color]='x.color' [price]='x.price'></app-product-card>
+
+
+<!-- <tr *ngFor="let z of  productservice.data; let i = index">
+    <td>{{hero.productDesc}}</td>
+    <td>{{i}}</td>
+</tr> -->

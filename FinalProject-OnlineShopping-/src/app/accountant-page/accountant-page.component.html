@@ -1,0 +1,7 @@
+<p>accountant-page works!</p>
+
+<app-accountant *ngFor="let x of AccountantService.data" [accountantName]='x.accountantName' [accountantId]='x.accountantId'
+[email]="x.email" [phone]="x.phone" [address]="x.address" [image]="x.image" [salary]='x.salary' 
+
+></app-accountant>
+

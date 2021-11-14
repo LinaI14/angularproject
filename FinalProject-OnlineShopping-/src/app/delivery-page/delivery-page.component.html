@@ -1,0 +1,6 @@
+<p>delivery-page works!</p>
+
+<app-delivery *ngFor="let x of DeliveryService.data" [deliveryName]='x.deliveryName' [deliveryId]='x.deliveryId'
+[email]="x.email" [phone]="x.phone" [address]="x.address" [image]="x.image" [salary]="x.salary"
+
+></app-delivery>

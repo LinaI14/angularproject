@@ -1,0 +1,58 @@
+
+
+<!-- 
+<app-customer-page *ngFor="let x of customerservice.data" [customerId]='x.customerId' [fullName]='x.fullName' [email]='x.email'
+[phone]='x.phone' [address]='x.address' [image]='x.image'
+ ></app-customer-page> -->
+
+
+ <!-- <p>influencer works!</p> -->
+
+<!-- {{ fullName }} -->
+
+<!-- <table class="table" id="tableData">
+    <thead class="text-white">
+        <th>Category</th>
+        <th>Number Of Advertisement</th>
+        <th>Total Of Payment</th>
+    </thead>
+
+
+    <tbody>
+        <tr *ngFor="let report of adService.reportData">
+            <td *ngIf="report.categoryId == 1"> Apartment </td>
+            <td *ngIf="report.categoryId == 3"> Building </td>
+            <td *ngIf="report.categoryId == 6"> Commercial </td>
+            <td>{{report.countOfAdvByCategory}}</td> -->
+
+<table class="table table-striped">
+    <thead>
+      <tr  >
+        <th scope="col" *ngFor="let colom of CustomerService.headers">{{ colom }}</th>
+        <!-- <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">image</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let row of CustomerService.data" >
+        
+        <td *ngFor="let colom of CustomerService.headers">{{ row[colom] }}</td>
+        <!-- <td>{{x.email}}</td>
+        <td>{{x.phone}}</td>
+        <td>{{x.address}}</td>
+        <td>{{x.image}}</td> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 mat-dialog-title style="text-align: center;">All INFO CUSTOMERS</h1>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="info">Close</button>
+</div>
+
+
+  

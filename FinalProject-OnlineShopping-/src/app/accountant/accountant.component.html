@@ -1,0 +1,31 @@
+
+
+            <table class="table table-striped">
+                <thead>
+                  <tr  >
+                    <th scope="col" *ngFor="let colom of AccountantService.headers">{{ colom }}</th>
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let row of AccountantService.data" >
+                    
+                    <td *ngFor="let colom of AccountantService.headers">{{ row[colom] }}</td>
+                   
+                  </tr>
+                </tbody>
+              </table>
+            
+              <h1 mat-dialog-title style="text-align: center;">All INFO ACCOUNTANT</h1>
+            
+            <div mat-dialog-actions>
+              <button mat-button mat-dialog-close class="info">Close</button>
+            </div>
+
+           
+
+            
+            
+              
+            
+

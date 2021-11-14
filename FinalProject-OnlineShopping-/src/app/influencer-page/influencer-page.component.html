@@ -1,0 +1,6 @@
+<p>influencer-page works!</p>
+
+<app-influencer *ngFor="let x of influencerService.data" [fullName]='x.fullName' [influencerId]='x.influencerId'
+[email]="x.email" [phone]="x.phone" [address]="x.address" [image]="x.image"
+
+></app-influencer>

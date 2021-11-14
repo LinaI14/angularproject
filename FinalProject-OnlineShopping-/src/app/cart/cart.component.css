@@ -1,0 +1,25 @@
+.cart_area{
+    width: 80%;
+    margin: auto;
+}
+
+/* .back-to-shop:hover{
+    background-color: gainsboro;
+    color: black;
+    text-transform: none;
+ 
+} */
+
+.btn{
+    background-color:#FBE9E7;
+    height: 50px;
+    width: 300px;
+    padding: 10px;
+    margin: 0;
+    
+
+}
+
+.btn:hover{
+    font-size: larger;
+}

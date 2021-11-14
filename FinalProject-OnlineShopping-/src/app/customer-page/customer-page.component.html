@@ -1,0 +1,7 @@
+
+
+<app-customer *ngFor="let x of CustomerService.data" [fullName]='x.fullName' [customerId]='x.customerId'
+[email]="x.email" [phone]="x.phone" [address]="x.address" [image]="x.image"
+
+></app-customer>
+
