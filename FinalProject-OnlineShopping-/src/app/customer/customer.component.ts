@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CreateCustomerComponent } from '../create-customer/create-customer.component';
 import { CustomerService } from '../service/customer.service';
-import { InfluencerService } from '../service/influencer.service';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -10,35 +11,50 @@ import { InfluencerService } from '../service/influencer.service';
 })
 export class CustomerComponent implements OnInit {
 
-
-  @Input () customerId:number|undefined;
-  @Input () fullName:string|undefined;
-  @Input () email:string|undefined;
-  @Input () phone:string|undefined;
-  @Input () address:string|undefined;
-  @Input () image:string|undefined;
-
-  @Input () problems:string|undefined;
-  @Input () login:string|undefined;
-  @Input () cart:string|undefined;
-  
-  constructor(private router:Router, public CustomerService : CustomerService) { }
-
+  constructor(private router: Router, public customerservice: CustomerService, private dialog: MatDialog) { }
   ngOnInit(): void {
+    this.getAllCustomer();
+  }
+  getAllCustomer() {
+
+    this.customerservice.getAllCustomer().subscribe((x: any) => { this.customerservice.data = x }, err => { ("customererror") })
+
   }
 
-//   constructor(private router:Router,public customerservice:CustomerService) { }
-//   ngOnInit(): void {
-//     this.getAllCustomer();
-//   }
-//   getAllCustomer()
+  //private dialog:MatDialog
+  // CreateCustomer(){
+  //   this.dialog.open(CreateCustomerComponent)
+  //   }
 
-//   {
+  getCustomerById(e: any) {
+    // id:number = parseInt
+    debugger
+    let id = parseInt(e.target.value)
+    this.customerservice.getCustomerById(id);
+  }
 
-// this.customerservice.getAllCustomer().subscribe((x:any)=>{this.customerservice.data=x},err=>{("customererror")})
+  ReportBuyCustomer(e: any) {
+    // id:number = parseInt
+    debugger
+    let id = parseInt(e.target.value)
+    this.customerservice.ReportBuyCustomer(id);
+  }
 
+  CreateCustomer() {
+    this.dialog.open(CreateCustomerComponent)
+  }
 
+  createCustomer() {
+    const dialogRef = this.dialog.open(CreateCustomerComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if (!result.id && result) {
+        this.customerservice.createCustomer(result);
 
-//   }
+      }
+
+    });
+  }
+
 }

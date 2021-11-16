@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Create Category</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>CategoryName</mat-label>
+      <input type="text" formControlName="CategoryName" style="font-size: x-large;" placeholder="CategoryName ">
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>InfluencerId</mat-label>
+      <input type="number"  formControlName="InfluencerId" style="font-size: x-large;"
+        placeholder="InfluencerId ">
+      <mat-error *ngIf="formGroup.controls.InfluencerId.hasError">
+
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Image</mat-label>
+      <input type="text"  formControlName="Image" style="font-size: x-large;" placeholder="Image">
+      <mat-error *ngIf="formGroup.controls.Phone.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+
+
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!formGroup.valid" mat-button [mat-dialog-close]="true" cdkFocusInitial
+    (click)="SaveItemCategory()">Save</button>
+</mat-dialog-actions>

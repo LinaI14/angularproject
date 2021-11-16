@@ -1,5 +1,7 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CreateCartComponent } from '../create-cart/create-cart.component';
 import { CartService } from '../service/cart.service';
 
 @Component({
@@ -8,50 +10,50 @@ import { CartService } from '../service/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  
-  // @Input () cartId:number|undefined;
-  // @Input () startDate:string|undefined;
-  // @Input () endDate:string|undefined;
-  // @Input () image:string|undefined;
-  // @Input () totalPrice:number|undefined;
-  // @Input () orderId:number|undefined;
-  // @Input () orderProduct:number|undefined;
-  // @Input () productId:number|undefined;
-  // @Input () product:number|undefined;
-  // @Input () payment:string|undefined;
+
+
+
+  constructor(private router: Router, public cartService: CartService, private dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.getAllCart();
+  }
+
+  getAllCart() {
+
+    this.cartService.getAllCart().subscribe((x: any) => { this.cartService.data = x }, err => { ("cartError") })
+
+
+  }
+  // CreateCart(){
+  //   this.dialog.open(CreateCartComponent)
+  //   }
+  goToShop() {
+    this.router.navigate(['shop']);
+  }
+  goToDetails() {
+    this.router.navigate(['product-details']);
+  }
+
+  goToCheckout() {
+    this.router.navigate(['checkout']);
+  }
+
 
  
-  constructor(private router:Router,public cartService : CartService) { }
+
+  CreateCart(){
+      const dialogRef = this.dialog.open(CreateCartComponent);
   
-  ngOnInit(): void {
-   this.getAllCart();
-  }
-
-  getAllCart()
-
-  {
-
-this.cartService.getAllCart().subscribe((x:any)=>{this.cartService.data=x},err=>{("cartError")})
-
-
-
-
-  }
-
-
-
-
-  goToShop(){
-    this.router.navigate(['shop']);
-}
-goToDetails(){
-  this.router.navigate(['product-details']);
-}
-
-goToCheckout()
-{
-  this.router.navigate(['checkout']);
-}
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+        if (!result.id && result){
+          this.cartService.CreateCart(result);
   
+        }
+        
+      });
+    }
+
 
 }

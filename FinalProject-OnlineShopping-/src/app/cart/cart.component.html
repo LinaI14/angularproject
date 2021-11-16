@@ -1,6 +1,6 @@
 <div id="wrapper">
 
-   
+
 
     <!-- ** Header Area Start ** -->
     <header class="header_area bg-img background-overlay-white" style="background-image: url(assets/picpic.jpg);">
@@ -15,7 +15,7 @@
                             <div class="top_logo">
                                 <a href="#"><img src="assets/img/core-img/logo.png" alt=""></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -28,11 +28,11 @@
             <div class="container h-100">
                 <div class="row h-100">
                     <div class="col-12 d-md-flex justify-content-between">
-                       
+
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </header>
     <!-- ** Header Area End ** -->
 
@@ -76,31 +76,52 @@
                                 <tr>
                                     <td class="cart_product_img d-flex align-items-center">
                                         <a href="#"><img src="assets/img/product-img/product-9.jpg" alt="Product"></a>
-                                        <h6> <app-cart-page *ngFor="let x of cartService.data" [startDate]='x.startDate'
-></app-cart-page>
+                                        <h6>
+                                            <app-cart-page *ngFor="let x of cartService.data" 
+                                            [startDate]='x.startDate'
+                                            [endDate]='x.endDate'
+                                            [image]='x.image'
+                                            [totalPrice]='x.totalPrice'
+                                            [orderId]='x.orderId'
+                                            [productId]='x.productId'
+                                            ></app-cart-page>
+
+
                                         </h6>
+
+                                        <button (click)="CreateCart()">Create New cart</button>
+                                        
                                     </td>
                                     <td class="price"><span>$49.88</span></td>
                                     <td class="qty">
                                         <div class="quantity">
-                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
-                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            <!-- <span class="qty-minus"
+                                                onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
+                                                    class="fa fa-minus" aria-hidden="true"></i></span> -->
+                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="99"
+                                                name="quantity" value="1">
+                                            <span class="qty-plus"
+                                                onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
+                                                    class="fa fa-plus" aria-hidden="true"></i></span>
                                         </div>
                                     </td>
                                     <td class="total_price"><span>$49.88</span></td>
                                     <td><i class="bi bi-trash"></i>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                          </svg></td>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div class="cart-footer d-flex mt-30">
-                        <div class="back-to-shop" >
+                        <div class="back-to-shop">
                             <a href="shop-grid-left-sidebar.html">Continue shopping</a>
                         </div>
                         <div class="update-checkout w-30 text-right" style="margin-left: 250px; ">
@@ -113,7 +134,7 @@
             </div>
 
             <div class="row">
-             
+
                 <div class="col-12 col-md-6 col-lg-4" style="margin-right: 300px;">
                     <div class="shipping-method-area mt-70">
                         <div class="cart-page-heading">
@@ -123,22 +144,25 @@
 
                         <div class="custom-control custom-radio mb-30">
                             <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio1"><span>Next day delivery</span><span>$4.99</span></label>
+                            <label class="custom-control-label d-flex align-items-center justify-content-between"
+                                for="customRadio1"><span>Next day delivery</span><span>$4.99</span></label>
                         </div>
 
                         <div class="custom-control custom-radio mb-30">
                             <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio2"><span>Standard delivery</span><span>$1.99</span></label>
+                            <label class="custom-control-label d-flex align-items-center justify-content-between"
+                                for="customRadio2"><span>Standard delivery</span><span>$1.99</span></label>
                         </div>
 
                         <div class="custom-control custom-radio">
                             <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio3"><span>Personal Pickup</span><span>Free</span></label>
+                            <label class="custom-control-label d-flex align-items-center justify-content-between"
+                                for="customRadio3"><span>Personal Pickup</span><span>Free</span></label>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="cart-total-area mt-70" >
+                    <div class="cart-total-area mt-70">
                         <div class="cart-page-heading">
                             <h5>Cart total</h5>
                             <p>Final info</p>
@@ -168,9 +192,15 @@
                             <img src="assets/img/core-img/logo.png" alt="">
                         </div>
                         <div class="copywrite_text d-flex align-items-center">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | Made
+                                with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com"
+                                    target="_blank">ThemeWagon</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                     </div>
                 </div>

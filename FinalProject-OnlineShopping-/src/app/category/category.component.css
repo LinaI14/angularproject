@@ -1,0 +1,13 @@
+.submit{
+    width: 150px;
+    height: 50px;
+    margin-left: 25px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    size: 18px;
+    border-radius: 7px;
+    box-shadow: black;
+    margin: 10px 0 0 30px;
+    list-style: none;
+ }

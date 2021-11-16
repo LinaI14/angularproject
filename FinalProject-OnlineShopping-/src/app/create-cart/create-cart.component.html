@@ -1,0 +1,63 @@
+<p>create-carts works!</p>
+
+
+
+<h1 mat-dialog-title>Create new accountant</h1>
+<mat-dialog-content>
+  <form [formGroup]="formGroup">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>startDate</mat-label>
+      <input type="date"  style="font-size:medium;" name="startDate" formControlName="startDate">
+      <mat-error *ngIf="formGroup.controls.Image.hasError('required')">
+        startDate is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>endDate</mat-label>
+      <input type="date"  style="font-size:medium;" name="endDate" formControlName="endDate">
+      <mat-error *ngIf="formGroup.controls.Description.hasError('required')">
+        endDate is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>image</mat-label>
+      <input type="text"  style="font-size:medium;" name="image" formControlName="image" placeholder="image" >
+      <mat-error *ngIf="formGroup.controls.ReviewNumber.hasError('required')">
+        image is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>totalPrice</mat-label>
+      <input type="number"  style="font-size:medium;" name="totalPrice" formControlName="totalPrice" placeholder="totalPrice">
+      <mat-error *ngIf="formGroup.controls.AdminId.hasError('required')">
+        totalPrice is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>orderId</mat-label>
+      <input type="number"  style="font-size:medium;" name="orderId" formControlName="orderId" placeholder="orderId">
+      <mat-error *ngIf="formGroup.controls.AdminId.hasError('required')">
+        orderId is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>productId</mat-label>
+      <input type="number"  style="font-size:medium;" name="productId" formControlName="productId" placeholder="productId">
+      <mat-error *ngIf="formGroup.controls.AdminId.hasError('required')">
+        productId is <strong>required</strong>
+      </mat-error>
+    </mat-form-field> -->
+
+  </form>
+  <mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close align="end">Cancel</button>
+      <button [disabled]="formGroup.invalid" mat-button [mat-dialog-close]="true" (click)="SaveItemCart()" cdkfFocusInitial
+        >Save</button>
+    </mat-dialog-actions>

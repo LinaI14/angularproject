@@ -1,5 +1,9 @@
 
 
 <app-attendence *ngFor="let x of attendenceService.data" [attendenceStartDate]='x.attendenceStartDate'
+[attendenceEndDate]='x.attendenceEndDate'
+
 
  ></app-attendence>
+
+ <button (click)="createAttendence()">createAttendence</button>

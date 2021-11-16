@@ -1,0 +1,51 @@
+<!-- 
+
+  <table class="table table-striped">
+    <thead>
+      <tr  >
+        <th scope="col" *ngFor="let colom of report.headers">{{ colom }}</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let row of report.data" >
+        
+        <td *ngFor="let colom of report.headers">{{ row[colom] }}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+   <h1 mat-dialog-title style="text-align: center;">Reoprt Sale Influencer</h1>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="info">Close</button>
+</div>
+
+
+
+ -->
+
+
+ <table class="table table-striped">
+    <thead>
+      <tr  >
+        <th scope="col" *ngFor="let colom of report.headers">{{ colom }}</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let row of report.data" >
+        
+        <td *ngFor="let colom of report.headers">{{ row[colom] }}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 mat-dialog-title style="text-align: center;">Reoprt Sale Influencer</h1>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="info">Close</button>
+</div>
+

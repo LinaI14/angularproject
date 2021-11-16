@@ -1,5 +1,7 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../service/cart.service';
 
 @Component({
@@ -22,10 +24,24 @@ export class CartPageComponent implements OnInit {
 
  
   
-  constructor(private router:Router,public cartService : CartService) { }
+  constructor(private router:Router,public cartService : CartService,
+    private toast:ToastrService ,
+    private spiner: NgxSpinnerService) { }
   
   ngOnInit(): void {
 
+  }
+
+  DeleteItemCart() {
+    if (this.cartId) {
+      debugger
+      this.cartService.DeletebyIDCart(this.cartId);
+      this.toast.success('Deleted Item ^_^');
+    }
+    else {
+      this.toast.warning('This item cannot be deleted :(')
+    }
+    window.location.reload();
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { AttendenceService } from '../service/attendence.service';
 
 @Component({
@@ -16,9 +18,24 @@ export class AttendenceComponent implements OnInit {
   @Input () accountant:number|undefined;
  
  
-  constructor(public attendenceService : AttendenceService) { }
+  constructor(public attendenceService : AttendenceService,
+    private toast:ToastrService ,
+    private spiner: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
+
+  DeleteItemAttendence() {
+    if (this.attendenceId) {
+      debugger
+      this.attendenceService.DeletebyIDAttendence(this.attendenceId);
+      this.toast.success('Deleted Item ^_^');
+    }
+    else {
+      this.toast.warning('This item cannot be deleted :(')
+    }
+    window.location.reload();
+  }
+
 
 }

@@ -35,7 +35,7 @@ import { TablelisttComponent } from './sharedd/tablelistt/tablelistt.component';
 import { UserprofileeComponent } from './sharedd/userprofilee/userprofilee.component';
 import { ShopComponent } from './shop/shop.component';
 // import { TablelistComponent } from './tablelist/tablelist.component';
-import { TestimonialComponent } from './testimonial/testimonial.component';
+
 // import { TypoComponent } from './typo/typo.component';
 // import { UpgradeComponent } from './upgrade/upgrade.component';
 // import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -100,42 +100,25 @@ const routes: Routes = [
     path: 'customer',
     component: CustomerComponent
   },
+
   // {
-  //   path: 'customerPage',
-  //   component: CustomerPageComponent
+  //   path: 'attendencePage',
+  //   component: AttendencePageComponent
   // }
-  // , 
-  // {
-  //   path: 'attendence',
-  //   component: AttendenceComponent
-  // },
-  {
-    path: 'attendencePage',
-    component: AttendencePageComponent
-  }
-  ,
-  //  {
-  //   path: 'orderProduct',
-  //   component: OrderProductComponent
-  // },
+  // ,
+  
   {
     path: 'orderProductPage',
     component: OrderProductPageComponent
   }
   , 
-  // {
-  //   path: 'Payment',
-  //   component: PaymentComponent
-  // },
+
   {
     path: 'PaymentPage',
     component: PaymentPageComponent
   }
   , 
-  // {
-  //   path: 'problem',
-  //   component: ProblemsComponent
-  // },
+ 
   {
     path: 'problemPage',
     component: ProblemsPageComponent
@@ -145,10 +128,10 @@ const routes: Routes = [
     component: ReviewComponent
   }
 ,
-{
-  path:'testimonial',
-  component:TestimonialComponent
-},
+// {
+//   path:'testimonial',
+//   component:TestimonialComponent
+// },
 {
   path: 'InfluencerPage',
   component: InfluencerPageComponent

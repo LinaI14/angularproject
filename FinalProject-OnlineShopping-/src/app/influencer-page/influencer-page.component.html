@@ -1,6 +1,76 @@
-<p>influencer-page works!</p>
 
-<app-influencer *ngFor="let x of influencerService.data" [fullName]='x.fullName' [influencerId]='x.influencerId'
-[email]="x.email" [phone]="x.phone" [address]="x.address" [image]="x.image"
 
-></app-influencer>
+<app-influencer *ngFor="let x of influencerService.data" [fullName]='x.fullName' [email]='x.email' [phone]='x.phone'
+[address]='x.phone' [image]='x.phone'></app-influencer>
+
+
+
+<app-search-influencer-dto *ngFor="let x of searchInfluencer.data" [productName]='x.productName'
+[productDesc]='x.productDesc' [image]='x.image' [size]='x.size' [color]='x.color' [price]='x.price'>
+</app-search-influencer-dto>
+
+
+
+
+
+<form>
+<div>
+    <p>search by id Influencer:</p>
+    <input (change)="getInfluencerById($event)">
+</div>
+</form>
+
+<div>
+<p>searchInfluencerName</p>
+<input (change)="searchInfluencerName($event)">
+
+</div>
+
+<div>
+<p>ReportBuyInfluencer</p>
+<input (change)="ReportBuyInfluencer($event)">
+
+</div>
+
+<div>
+ReportSaleInfluencer:
+
+<button (click)="ReportSaleInfluencer()">ReportSaleInfluencer</button>
+
+</div>
+
+
+
+<div>
+CreateInfluencer:
+
+<button (click)="createInfluencer()">CreateInfluencer</button>
+
+</div>
+
+
+<div>
+<p>ReportSaleForEachInfluencer:</p>
+
+<input (change)="ReportSaleForEachInfluencer($event)">
+
+</div>
+
+<!-- <app-search-influencer-dto *ngFor="let x of influencerService.data" [productName]='x.productName'
+[productDesc]='x.productDesc' [image]='x.image' [size]='x.size' [color]='x.color' [price]='x.price'>
+</app-search-influencer-dto> -->
+
+
+
+<app-report-buy-infuencer *ngFor="let x of influencerService.data" [influencerName]='x.influencerName'
+[productName]='x.productName' [price]='x.price' [qty]='x.qty' [totalPrice]='x.totalPrice'>
+</app-report-buy-infuencer>
+
+
+<app-report-sale-for-eachinfluencer *ngFor="let x of influencerService.data" [influencerName]='x.influencerName'
+[productName]='x.productName' [price]='x.price' [categoryName]='x.categoryName'>
+</app-report-sale-for-eachinfluencer>
+
+
+
+

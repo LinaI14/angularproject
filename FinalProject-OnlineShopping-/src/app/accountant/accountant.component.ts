@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CreateAccountantComponent } from '../create-accountant/create-accountant.component';
 import { AccountantService } from '../service/accountant.service';
 
 @Component({
@@ -8,21 +10,47 @@ import { AccountantService } from '../service/accountant.service';
   styleUrls: ['./accountant.component.css']
 })
 export class AccountantComponent implements OnInit {
-  @Input () accountantId:number|undefined;
-  @Input () accountantName:string|undefined;
-  @Input () email:string|undefined;
-  @Input () phone:string|undefined;
-  @Input () address:string|undefined;
-  @Input () image:string|undefined;
 
-  @Input () salary:number|undefined;
-  @Input () login:string|undefined;
-  @Input () problems:string|undefined;
-  @Input () attendence:string|undefined;
-  constructor(private router:Router, public AccountantService : AccountantService) { }
+  constructor(private dialog: MatDialog, private router: Router, public AccountantService: AccountantService) { }
+
+  ngOnInit(): void {
+    this.getAllAccountant();
+  }
+
+  getAllAccountant() {
+    this.AccountantService.getAllAccountant().subscribe((x: any) => { this.AccountantService.data = x }, err => { ("customererror") })
+  }
+
 
   
-  ngOnInit(): void {
+  createAccountant(){
+    this.dialog.open(CreateAccountantComponent)
   }
+
+  getAccountantById(e:any){
+    // id:number = parseInt
+    debugger
+    let  id =  parseInt (e.target.value)
+    this.AccountantService.getAccountantById(id);
+  }
+
+  
+
+  CreateAccountant(){
+    this.dialog.open(CreateAccountantComponent)
+    }
+
+    createaccountant(){
+      const dialogRef = this.dialog.open(CreateAccountantComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+        if (!result.id && result){
+          this.AccountantService.createAccountant(result);
+  
+        }
+        
+      });
+    }
 
 }

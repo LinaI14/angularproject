@@ -5,6 +5,7 @@
         <app-contactus-home *ngFor="let x of ContactUsService.data" [description]='x.description'
  ></app-contactus-home>
 
+ <button (click)="createContactUs()">CreateContactUs</button>
  
         <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
             <div class="container-fluid">

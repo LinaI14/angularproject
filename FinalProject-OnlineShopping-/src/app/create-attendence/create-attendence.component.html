@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Create new accountant</h1>
+<mat-dialog-content>
+  <form [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>AttendenceStartDate</mat-label>
+      <input type="date" formControlName="AttendenceStartDate" style="font-size:medium;" placeholder="StartDate :01-02-2020 ">
+      <mat-error *ngIf="formGroup.controls.Image.hasError('required')">
+        accountantName is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>AttendenceEndDate</mat-label>
+      <input type="date"  style="font-size:medium;" name="AttendenceEndDate"
+        formControlName="AttendenceEndDate" placeholder="EndDate : 01-02-2020 ">
+      <mat-error *ngIf="formGroup.controls.Description.hasError('required')">
+        AttendenceEndDate is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>DeliveryId</mat-label>
+      <input type="number"  style="font-size:medium;" name="DeliveryId" formControlName="DeliveryId" placeholder="DeliveryId"> 
+      <mat-error *ngIf="formGroup.controls.ReviewNumber.hasError('required')">
+        DeliveryId is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>AccountantId</mat-label>
+      <input type="number"  style="font-size:medium;" name="AccountantId" formControlName="AccountantId" placeholder="AccountantId">
+      <mat-error *ngIf="formGroup.controls.AdminId.hasError('required')">
+        AccountantId is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+
+
+
+  </form>
+  <mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close align="end">Cancel</button>
+      <button mat-button  [mat-dialog-close]="true" (click)="SaveItemAttendence()" cdkfFocusInitial
+        [disabled]="formGroup.invalid">Save</button>
+    </mat-dialog-actions>

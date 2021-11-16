@@ -1,0 +1,57 @@
+<p>create-contact-us works!</p>
+
+
+
+<h2 mat-dialog-title>Create ContactUs</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input type="text"  formControlName="Description" style="font-size: x-large;" placeholder="Description ">
+     
+    </mat-form-field>
+   
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input type="text"  formControlName="Name" style="font-size: x-large;"  placeholder="Name ">
+      <mat-error *ngIf="formGroup.controls.Email.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="text"  formControlName="Email" style="font-size: x-large;"  placeholder="UserName@gmail.com">
+      <mat-error *ngIf="formGroup.controls.Email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Subject</mat-label>
+      <input type="text"  formControlName="Subject" style="font-size: x-large;" placeholder="Subject">
+      <mat-error *ngIf="formGroup.controls.Subject.hasError('required')">
+        Subject is<strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>AdminId</mat-label>
+      <input type="number"  formControlName="AdminId" style="font-size: x-large;" placeholder="AdminId">
+      <mat-error *ngIf="formGroup.controls.AdminId.hasError">
+       
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+  [disabled]="!formGroup.valid"
+   mat-button [mat-dialog-close]="true" cdkFocusInitial
+    (click)="SaveItemContactUs()">Save</button>
+</mat-dialog-actions>
+
+<!-- [disabled]="!formGroup.valid"  -->

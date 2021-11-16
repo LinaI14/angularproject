@@ -1,41 +1,17 @@
-<!-- <p>influencer works!</p> -->
 
-<!-- {{ fullName }} -->
-
-<!-- <table class="table" id="tableData">
-    <thead class="text-white">
-        <th>Category</th>
-        <th>Number Of Advertisement</th>
-        <th>Total Of Payment</th>
-    </thead>
-
-
-    <tbody>
-        <tr *ngFor="let report of adService.reportData">
-            <td *ngIf="report.categoryId == 1"> Apartment </td>
-            <td *ngIf="report.categoryId == 3"> Building </td>
-            <td *ngIf="report.categoryId == 6"> Commercial </td>
-            <td>{{report.countOfAdvByCategory}}</td> -->
 
 <table class="table table-striped">
     <thead>
       <tr  >
         <th scope="col" *ngFor="let colom of influencerService.headers">{{ colom }}</th>
-        <!-- <th scope="col">Full Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Address</th>
-        <th scope="col">image</th> -->
+       
       </tr>
     </thead>
     <tbody>
       <tr  *ngFor="let row of influencerService.data" >
         
         <td *ngFor="let colom of influencerService.headers">{{ row[colom] }}</td>
-        <!-- <td>{{x.email}}</td>
-        <td>{{x.phone}}</td>
-        <td>{{x.address}}</td>
-        <td>{{x.image}}</td> -->
+       
       </tr>
     </tbody>
   </table>
@@ -48,3 +24,39 @@
 
 
   
+<!-- ========================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+<mat-card class="example-card" style="margin-left: 10px;">
+
+ 
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ fullName }}  </mat-card-title>
+    <mat-card-subtitle>{{ email }} </mat-card-subtitle>
+    <mat-card-title>{{ phone }} </mat-card-title>
+    <mat-card-subtitle>{{ address }} </mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <p>
+      {{ image }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions> 
+
+  
+      <button mat-button (click)="DeleteItemInfluencer()">Delete</button>
+   
+  </mat-card-actions>
+</mat-card>
